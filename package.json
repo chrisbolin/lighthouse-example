@@ -1,0 +1,14 @@
+{
+  "name": "lighthouse-test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "lighthouse-cli": "lighthouse https://google.com/ --no-enable-error-reporting --chrome-flags=\"--headless\" --output=\"json\"",
+    "lighthouse": "node ./run-lighthouse.js"
+  },
+  "dependencies": {
+    "chrome-launcher": "^0.10.5",
+    "lighthouse": "^3.2.1"
+  }
+}
