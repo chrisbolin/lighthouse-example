@@ -14,10 +14,12 @@ Example: repeatedly test localhost:3000
 yarn lighthouse http://localhost:3000/ --loop
 ```
 
+The output can easily be pasted into a spreadsheet.
+
 #### Options
 
 `--loop` - Runs the test repeatedly
 
 ### Known Issues
 
-`--loop`
+- `--loop` does not kill child process when quit
