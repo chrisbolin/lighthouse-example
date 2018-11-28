@@ -2,7 +2,12 @@
 
 _This is just a simple proof-of-concept. It's ugly. You've been warned._
 
-### Usage
+### Install
+
+- clone this repo
+- yarn install
+
+### Use
 
 ```
 yarn lighthouse [url] [options]
