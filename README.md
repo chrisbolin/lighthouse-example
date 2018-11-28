@@ -1,6 +1,6 @@
-## Lighthouse on the CLI - Example
+## Lighthouse Runner: An Example
 
-_This is just a simple proof of concept. It's ugly. You've been warned._
+_This is just a simple proof-of-concept. It's ugly. You've been warned._
 
 ### Usage
 
