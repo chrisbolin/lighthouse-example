@@ -16,7 +16,7 @@ const opts = {
 };
 
 const auditSite = (url, _config = {}) => {
-  const config = { verbose: true, ..._config };
+  const config = { verbose: true, runNumber: 0, ..._config };
 
   const logVerbose = log => {
     if (config.verbose) console.log(log);
@@ -26,15 +26,16 @@ const auditSite = (url, _config = {}) => {
 
   return launchChromeAndRunLighthouse(url, opts).then(results => {
     logVerbose(
-      "score, TT Interactive, TT 1st Meaningful Paint, TTFB, Speed Index"
+      "run, score, TT Interactive, TT 1st Meaningful Paint, TTFB, Speed Index"
     );
 
     const report = [
+      config.runNumber,
       results.categories.performance.score,
       results.audits.interactive.rawValue,
       results.audits["first-meaningful-paint"].rawValue,
       results.audits["time-to-first-byte"].rawValue,
-      results.audits["speed-index"].rawValue
+      results.audits["speed-index"].rawValue,
     ]
       .map(datum => (datum > 1000 ? Math.round(datum) : datum))
       .join(", ");
@@ -43,9 +44,9 @@ const auditSite = (url, _config = {}) => {
   });
 };
 
-const auditSiteLoop = async url => {
-  for (let i = 0; i < 1000; i++) {
-    await auditSite(url, { verbose: i === 0 });
+const auditSiteLoop = async (url, {runs = 1} = {}) => {
+  for (let i = 0; i < runs; i++) {
+    await auditSite(url, { verbose: i === 0, runNumber: i });
   }
 };
 

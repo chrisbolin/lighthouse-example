@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
-    "lighthouse": "node ./run-lighthouse.js"
+    "lighthouse": "node ./cli.js"
   },
   "dependencies": {
     "chrome-launcher": "^0.10.5",
-    "lighthouse": "^3.2.1"
+    "lighthouse": "^3.2.1",
+    "minimist": "^1.2.0"
   }
 }
